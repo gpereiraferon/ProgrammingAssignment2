@@ -1,10 +1,10 @@
-## Put comments here that give an overall description of what your
-## functions do
+## Functions makeCacheMartix and cacheSolve compute the inverse
+## of a square matrix and cache the value
 
-## creates a special "matrix" object that can cache its inverse
-
+## makeCacheMatrix takes in a matrix object x and creates a special
+## "matrix" list that can cache its inverse m
 makeCacheMatrix <- function(x = matrix()) {
-    m <- NULL
+    m <- NULL ## initialize m
     
     # caching objects x and m
     set <- function(y) {
@@ -29,7 +29,7 @@ makeCacheMatrix <- function(x = matrix()) {
     
     ## assigns each function as an element within a list()
     ## and returns it to the parent environment
-    ## elements in the list  are name so we can use the 
+    ## elements in the list are named so we can use the 
     ## $ extract operator later
     list(set = set, get = get, 
          setinverse = setinverse,
@@ -37,9 +37,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## function gets cached inverse matrix, if has already been calculated
-## otherwise it computes the inverse and sets the value in the cache
-## mean has already been calculated. If so, it `get`s the mean from the
+## cacheSolve returns the cached inverse matrix, if has already been calculated
+## Otherwise, it computes the inverse and sets the value in the cache
 
 ## Requires input argument of type makeCacheMatrix()
 cacheSolve <- function(x, ...) {
